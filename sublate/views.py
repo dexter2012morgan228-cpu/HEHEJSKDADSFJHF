@@ -163,7 +163,7 @@ class _NoteModal(discord.ui.Modal):
 
     def __init__(self, *, accepted: bool, locale: str, parsed: dict, context: "BotContext"):
         title = t("modal_note_title" if accepted else "modal_reason_decline_title", locale)
-        super().__init__(title=title)
+        super().__init__(title=title[:45])
         self.accepted = accepted
         self.locale = locale
         self.parsed = parsed
@@ -172,11 +172,11 @@ class _NoteModal(discord.ui.Modal):
         self.note.label = t(
             "modal_note_label" if accepted else "modal_reason_decline_label",
             locale,
-        )
+        )[:45]
         self.note.placeholder = t(
             "modal_note_placeholder" if accepted else "modal_reason_decline_placeholder",
             locale,
-        )
+        )[:100]
 
     async def on_submit(self, interaction: discord.Interaction):
         await _finalize_decision(
@@ -469,13 +469,13 @@ class InviteModal(discord.ui.Modal):
     )
 
     def __init__(self, context: "BotContext", locale: str):
-        super().__init__(title=t("modal_title", locale))
+        super().__init__(title=t("modal_title", locale)[:45])
         self.context = context
         self.locale = locale
-        self.reason.label = t("modal_reason_label", locale)
-        self.reason.placeholder = t("modal_reason_placeholder", locale)
-        self.contact.label = t("modal_contact_label", locale)
-        self.contact.placeholder = t("modal_contact_placeholder", locale)
+        self.reason.label = t("modal_reason_label", locale)[:45]
+        self.reason.placeholder = t("modal_reason_placeholder", locale)[:100]
+        self.contact.label = t("modal_contact_label", locale)[:45]
+        self.contact.placeholder = t("modal_contact_placeholder", locale)[:100]
 
     async def on_submit(self, interaction: discord.Interaction):
         from .commands import handle_submission
