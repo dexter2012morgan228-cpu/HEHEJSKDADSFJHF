@@ -94,7 +94,7 @@ LOCALES = {
         "modal_title": "Sublate Key — Заявка на доступ",
         "modal_reason_label": "Почему вы должны получить доступ к Sublate?",
         "modal_reason_placeholder": "Расскажите о себе, для чего вам Sublate и почему стоит выдать доступ…",
-        "modal_contact_label": "Предпочтительный контакт (Telegram, email и т.п.)",
+        "modal_contact_label": "Контакт (Telegram, email и т.п.)",
         "modal_contact_placeholder": "@username / email — необязательно",
 
         "preview_title": "Sublate Key — Проверьте заявку",
